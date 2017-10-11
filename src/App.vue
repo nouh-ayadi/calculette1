@@ -1,34 +1,75 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitter Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+
+    <h1> Ma Calculatrice !! </h1>
+ <h4> Entrer 2 nombre dans les champ en bas et le resultat saffichera <br>
+      ensuite choissisez ci vous voulez le multiplier ou l'additionner etc </h4>
+    <form class="champ">
+     
+      NB1 <input type='number' v-model ='nb1'> </input>
+      NB2 <input type='number' v-model = 'nb2'> </input>
+      Results <input type="text" v-model="result"> </input>
+
+    </form>
+
+    </br>
+
+    <button v-on:click='add()'> Addition </button>
+    <button v-on:click="mul()"> Multiplication </button>
+    <button v-on:click="div()"> Division </button>
+    <button v-on:click="sous()"> Soustraction </button>
+
+    </br>
+    </br>
+
+
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'app',
-  data () {
+  data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+      result : 0, 
+      nb1 : 0,
+      nb2 : 0,
+    };
+  },
+
+  methods: {
+
+    add() {
+
+    this.result = parseInt(this.nb1) + parseInt(this.nb2); 
+      
+    },
+
+    mul() {
+
+this.result = this.nb1 * this.nb2;
+
+    },
+
+    div() {
+
+this.result = this.nb1 / this.nb2;
+
+    },
+
+    sous() {
+
+this.result = this.nb1 - this.nb2;
+
+    },
+
   }
 }
+  // this.result = this.result + this.result
+
 </script>
+
 
 <style lang="scss">
 #app {
@@ -40,7 +81,8 @@ export default {
   margin-top: 60px;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 
